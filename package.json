@@ -1,6 +1,6 @@
 {
   "name": "sudoku",
-  "homepage": "https://<USERNAME>.github.io/<REPO NAME>",
+  "homepage": "https://Space-Animals.github.io/sudoku-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
