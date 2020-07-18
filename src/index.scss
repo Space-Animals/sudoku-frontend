@@ -1,1 +1,57 @@
 @import '~bootstrap/scss/bootstrap';
+
+main > .container-fluid {
+  padding: 0px;
+  width: 100vw;
+}
+
+.board {
+  align-items: center;
+  border: 2px solid #ff1f26;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 573px;
+  margin: 50px;
+  width: 573px;
+}
+
+.container-fluid {
+  align-items: content;
+  border: 2px solid #1e05ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.hide-input {
+  display: none;
+}
+
+// .hide-notes {
+//   display: none;
+// }
+
+.outer-cell {
+  align-items: center;
+  border: 2px solid #05c5ff;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60px;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  width: 60px;
+}
+
+.pencil-cell {
+  align-items: center;
+  border-style: hidden;
+  display: flex;
+  flex-direction: row;
+  height: 17px;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 17px;
+}
