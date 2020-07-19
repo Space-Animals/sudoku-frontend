@@ -11,6 +11,8 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 
 import Board from '../Board/Board'
 import Square from '../Square/Square'
+import Game from '../Game/Game'
+import Home from '../Home/Home'
 
 class App extends Component {
   constructor () {
@@ -63,6 +65,12 @@ class App extends Component {
           <Route path='/board' render={() => (
             <Board/>
           )}/>
+          <Route path='/games' user={user} render={() => (
+            <Game user={user} />
+          )} />
+          <Route exact path='/' render={() => (
+            <Home user={user} />
+          )} />
         </main>
       </Fragment>
     )
