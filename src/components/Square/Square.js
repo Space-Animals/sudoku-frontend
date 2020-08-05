@@ -1,20 +1,36 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 
-const Square = () => (
-  <Fragment>
-    <div className="outer-cell">
-      <div id="0" className="pencil-cell hide-notes"></div>
-      <div id="1" className="pencil-cell hide-notes"></div>
-      <div id="2" className="pencil-cell hide-notes"></div>
-      <div id="3" className="pencil-cell hide-notes"></div>
-      <div id="4" className="pencil-cell hide-notes"></div>
-      <div id="5" className="pencil-cell hide-notes"></div>
-      <div id="6" className="pencil-cell hide-notes"></div>
-      <div id="7" className="pencil-cell hide-notes"></div>
-      <div id="8" className="pencil-cell hide-notes"></div>
-    </div>
-  </Fragment>
-)
+class Square extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      // pencilMode: null
+    }
+  }
+
+  render () {
+    const { handleSquare, pencilOn, squareID } = this.props
+    return (
+      <Fragment>
+        <div onClick={handleSquare} id={squareID} className={pencilOn ? 'square-container hide-input' : 'square-container'}>
+        </div>
+        <div className={pencilOn ? 'square-container' : 'square-container hide-notes'}>
+          <div id={`${squareID}-0`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-1`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-2`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-3`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-4`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-5`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-6`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-7`} className={`pencil-cells ${squareID}-notes`}></div>
+          <div id={`${squareID}-8`} className={`pencil-cells ${squareID}-notes`}></div>
+        </div>
+      </Fragment>
+    )
+  }
+}
 
 // <div className="outer-cell">
 //   <div id={index} className="hide-input"></div>
@@ -29,4 +45,4 @@ const Square = () => (
 //   <div id={`cells-${index}-8`} className="hide-notes"></div>
 // </div>
 
-export default Square
+export default withRouter(Square)
