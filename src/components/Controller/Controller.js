@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 const Controller = (props) => {
-  const { handleInput, clear, handlePencil } = props
+  const { handleInput, clearSquare, handlePencil } = props
   return (
     <Fragment>
       <div className="controller">
@@ -14,9 +14,8 @@ const Controller = (props) => {
         <div onClick={handleInput} id="7" className="controller-input">7</div>
         <div onClick={handleInput} id="8" className="controller-input">8</div>
         <div onClick={handleInput} id="9" className="controller-input">9</div>
-        <div onClick={handlePencil} id="pencil-mode" className="controller-input">(Pencil)</div>
-        <div className="controller-input"></div>
-        <div onClick={clear} id="clear" className="controller-input">(Clear)</div>
+        <div onClick={handlePencil} className="controller-input">(Note)</div>
+        <div onClick={clearSquare} className="controller-input">(Clear)</div>
       </div>
     </Fragment>
   )

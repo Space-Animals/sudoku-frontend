@@ -9,7 +9,6 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
-import Board from '../Board/Board'
 import Square from '../Square/Square'
 import Game from '../Game/Game'
 import Home from '../Home/Home'
@@ -61,9 +60,6 @@ class App extends Component {
           )} />
           <Route path='/square' render={() => (
             <Square/>
-          )}/>
-          <Route path='/board' render={() => (
-            <Board/>
           )}/>
           <Route path='/games' user={user} render={() => (
             <Game user={user} />

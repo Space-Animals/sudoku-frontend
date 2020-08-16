@@ -54,10 +54,11 @@ main > .container-fluid {
 
 .pencil-cells {
   align-items: center;
-  // border-style: hidden;
-  border: 2px solid #10b542;
+  border-style: hidden;
+  // border: 2px solid #10b542;
   display: flex;
   flex-direction: row;
+  color: #f5b505;
   height: 17px;
   justify-content: center;
   margin: auto;
@@ -75,6 +76,10 @@ main > .container-fluid {
   margin: auto;
   padding: 0;
   width: 60px;
+}
+
+.square-input {
+  font-size: 30px;
 }
 
 .hide-input {
