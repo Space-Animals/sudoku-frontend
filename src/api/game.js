@@ -12,3 +12,21 @@ export const newGame = (user) => {
     data: '{}'
   })
 }
+
+export const updateGame = (user, game, index, value, over) => {
+  return axios({
+    url: `${apiUrl}/games/${game.id}/`,
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${user.token}`
+    },
+    data: {
+      'cell': {
+        'index': index,
+        'value': value
+      },
+      'over': over
+    }
+  })
+}

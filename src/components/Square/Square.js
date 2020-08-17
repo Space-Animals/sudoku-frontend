@@ -17,14 +17,11 @@ class Square extends Component {
   }
 
   handleInput = (event) => {
-    const square = this.props.squareID
+    console.log('hope this works!')
+    const { handleSquare, squareID } = this.props
     const { pencilMode } = this.state
-
-    if (pencilMode === true) {
-      document.getElementById(`${square}-${event.target.id - 1}`).innerHTML = event.target.id
-    } else {
-      document.getElementById(square).innerHTML = event.target.id
-    }
+    console.log(squareID)
+    handleSquare(event, squareID, pencilMode)
     this.setState({ show: false })
   }
 
@@ -35,6 +32,7 @@ class Square extends Component {
       pencilCells.forEach(e => {
         document.getElementById(`${square}-${e}`).innerHTML = ''
       })
+      this.setState({ pencilMode: false })
     } else {
       document.getElementById(square).innerHTML = ''
     }
@@ -75,6 +73,7 @@ class Square extends Component {
           size="sm"
           show={show}
           aria-labelledby="contained-modal-sizes-title-sm"
+          onHide={this.hideModal}
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-sizes-title-sm">
