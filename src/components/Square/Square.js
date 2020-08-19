@@ -17,25 +17,17 @@ class Square extends Component {
   }
 
   handleInput = (event) => {
-    console.log('hope this works!')
     const { handleSquare, squareID } = this.props
     const { pencilMode } = this.state
-    console.log(squareID)
     handleSquare(event, squareID, pencilMode)
     this.setState({ show: false })
   }
 
-  clearSquare = () => {
-    const square = this.props.squareID
-    const pencilCells = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    if (this.state.pencilMode === true) {
-      pencilCells.forEach(e => {
-        document.getElementById(`${square}-${e}`).innerHTML = ''
-      })
-      this.setState({ pencilMode: false })
-    } else {
-      document.getElementById(square).innerHTML = ''
-    }
+  handleClear = (event) => {
+    const { clearSquare, squareID } = this.props
+    const { pencilMode } = this.state
+    clearSquare(event, squareID, pencilMode)
+    this.setState({ pencilMode: false })
   }
 
   handlePencil = () => {
@@ -44,6 +36,10 @@ class Square extends Component {
   }
 
   showModal = () => {
+    const { over } = this.props
+    if (over) {
+      return
+    }
     this.setState({ show: true })
   }
 
@@ -80,8 +76,8 @@ class Square extends Component {
               Choose Input Type, Then Value
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Controller handleInput={this.handleInput} clearSquare={this.clearSquare} handlePencil={this.handlePencil} hideModal={this.hideModal}/>
+          <Modal.Body className="controller-container">
+            <Controller handleInput={this.handleInput} handleClear={this.handleClear} handlePencil={this.handlePencil} pencilMode={pencilMode}/>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.hideModal} className="btn btn-danger">Close</Button>

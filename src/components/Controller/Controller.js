@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 
 const Controller = (props) => {
-  const { handleInput, clearSquare, handlePencil } = props
+  const { handleInput, handleClear, handlePencil, pencilMode } = props
   return (
     <Fragment>
+      {console.log(`current pencil mode: ${pencilMode}`)}
       <div className="controller">
         <div onClick={handleInput} id="1" className="controller-input">1</div>
         <div onClick={handleInput} id="2" className="controller-input">2</div>
@@ -15,7 +16,7 @@ const Controller = (props) => {
         <div onClick={handleInput} id="8" className="controller-input">8</div>
         <div onClick={handleInput} id="9" className="controller-input">9</div>
         <div onClick={handlePencil} className="controller-input">(Note)</div>
-        <div onClick={clearSquare} className="controller-input">(Clear)</div>
+        <div onClick={handleClear} className="controller-input">(Clear)</div>
       </div>
     </Fragment>
   )
