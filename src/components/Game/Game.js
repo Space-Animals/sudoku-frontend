@@ -116,7 +116,7 @@ class Game extends Component {
         <div className="game-container">
           <div className="board">
             {this.state.board.map((value, index) => (
-              <Square key={index} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} over={this.state.over}/>
+              <Square key={index} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
             ))}
           </div>
         </div>
