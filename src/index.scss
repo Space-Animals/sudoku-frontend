@@ -5,9 +5,14 @@ main > .container-fluid {
   width: 100vw;
 }
 
+// .container-fluid {
+//   display: flex;
+//   justify-content: center;
+// }
+
 $blue: #2cdaf5;
 $green: #10c94e;
-$red: #fc4138;
+$red: #f0624f;
 
 .board {
   align-items: center;
@@ -29,16 +34,17 @@ $red: #fc4138;
 
 .container-fluid {
   align-items: center;
-  border: 2px solid #1e05ff;
+  // border: 2px solid #1e05ff;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 0px;
 }
 
 .controller-container {
   align-items: center;
-  // background-color: #e6eded;
-  background-color: $blue;
+  background-color: white;
+  // background-color: $blue;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -47,7 +53,7 @@ $red: #fc4138;
 
 .controller {
   align-items: center;
-  color: white;
+  color: $blue;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -67,7 +73,7 @@ $red: #fc4138;
 
 .controller-input-pencil {
   align-items: center;
-  background-color: #fff01f;
+  background-color: #ffd269;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -94,6 +100,46 @@ $red: #fc4138;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.home-buttons {
+  margin: 2px;
+}
+
+.home-options {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.home-options-container {
+  background-image: url('images/yoshi_wallpaper.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: 500px;
+  margin: 40px;
+  padding: 0px;
+  width: 100%
+}
+
+.home-options-screen {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 50px;
+  height: 300px;
+}
+
+.jumbotron {
+  background-color: rgba(44, 218, 245, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 20;
+  padding: 0px;
 }
 
 .nav {
