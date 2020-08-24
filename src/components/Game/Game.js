@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
 
 import Square from '../Square/Square'
-import { newGame, updateGame } from '../../api/game'
+import { newGame, updateGame, showGame } from '../../api/game'
 import { checkForWin } from '../../helpers/helperFunctions'
+import { levels } from '../../levels/level.js'
 
 class Game extends Component {
   constructor () {
@@ -17,15 +18,33 @@ class Game extends Component {
 
   async componentDidMount () {
     const { user } = this.props
+    const { over } = this.state
     try {
-      const response = await newGame(user)
+      // function to iterrate through levels object/arrays and take index, and value inputs, to update game
+      const createdGame = await newGame(user)
+      const game = createdGame.data
+      const level = levels[4]
+      let response = null
+      for (let i = 0; i < level.length; i++) {
+        const index = level[i][0]
+        const value = level[i][1]
+        response = await updateGame(user, game, index, value, over)
+      }
+      const finishedLevel = await showGame(user, response.data)
+      console.log(finishedLevel.data)
       setTimeout(() => {
         this.setState({
-          game: response.data,
-          board: response.data.cells,
-          over: response.data.over,
+          game: finishedLevel.data,
+          board: finishedLevel.data.cells,
+          over: finishedLevel.data.over,
           isLoading: false
         })
+
+        if (this.state.game) {
+          this.state.board.forEach((v, i) => {
+            document.getElementById(`square-${i}`).innerHTML = v
+          })
+        }
       }, 1000)
     } catch (error) {
       console.error(error)
@@ -80,7 +99,6 @@ class Game extends Component {
         document.getElementById(square).innerHTML = ''
         updateGame(user, game, index, '', false)
           .then((res) => {
-            console.log(res)
             this.setState({
               game: res.data,
               board: res.data.cells,
@@ -92,7 +110,6 @@ class Game extends Component {
       document.getElementById(square).innerHTML = ''
       updateGame(user, game, index, '', false)
         .then((res) => {
-          console.log(res)
           this.setState({
             game: res.data,
             board: res.data.cells,
@@ -116,7 +133,7 @@ class Game extends Component {
         <div className="game-container">
           <div className="board">
             {this.state.board.map((value, index) => (
-              <Square key={index} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
+              <Square key={index} fixedSquare={levels[4][index][1]} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
             ))}
           </div>
         </div>

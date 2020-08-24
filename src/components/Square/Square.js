@@ -36,8 +36,11 @@ class Square extends Component {
   }
 
   showModal = () => {
-    const { over } = this.props
+    const { fixedSquare, over } = this.props
     if (over) {
+      return
+    }
+    if (fixedSquare) {
       return
     }
     this.setState({ show: true })
@@ -228,11 +231,11 @@ class Square extends Component {
     }
 
     const squareClass = squareClasses(index)
+    const { fixedSquare } = this.props
 
     return (
       <Fragment>
-
-        <div onClick={this.showModal} id={squareID} className={pencilMode ? 'hide-input' : `${squareClass} square-input`}>
+        <div onClick={this.showModal} id={squareID} className={pencilMode ? 'hide-input' : fixedSquare ? `${squareClass} fixed-square-input` : `${squareClass} square-input`}>
         </div>
         <div className={pencilMode ? `${squareClass}` : 'hide-notes'}>
           <div onClick={this.showModal} id={`${squareID}-0`} className={`pencil-cells ${squareID}-notes`}></div>

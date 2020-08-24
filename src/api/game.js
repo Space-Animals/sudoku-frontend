@@ -30,3 +30,14 @@ export const updateGame = (user, game, index, value, over) => {
     }
   })
 }
+
+export const showGame = (user, game) => {
+  return axios({
+    url: `${apiUrl}/games/${game.id}/`,
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}

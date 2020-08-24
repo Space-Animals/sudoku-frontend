@@ -11,7 +11,7 @@ class Home extends Component {
       <Fragment>
         <Row className="home-options-container">
           <Jumbotron className="home-options-screen col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div className="home-options col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className="home-options col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Button href="#sign-up"className="home-buttons">Sign Up!</Button>
               <Button href="#sign-in" className="home-buttons">Sign In</Button>
               <Button href="#how-to-play" className="home-buttons">How To Play!</Button>
@@ -25,7 +25,7 @@ class Home extends Component {
       <Fragment>
         <Row className="home-options-container">
           <Jumbotron className="home-options-screen col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div className="home-options col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className="home-options col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Button href="#games"className="home-buttons">New Game</Button>
               <Button href="#completed-games"className="home-buttons">Completed Games</Button>
               <Button href="#how-to-play" className="home-buttons">How To Play!</Button>
