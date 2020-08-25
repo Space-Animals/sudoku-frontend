@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
 import Square from '../Square/Square'
-import { newGame, updateGame, showGame } from '../../api/game'
+import { newGame, updateGame, showGame, indexGames } from '../../api/game'
 import { checkForWin } from '../../helpers/helperFunctions'
 import { levels } from '../../levels/level.js'
 
@@ -12,7 +12,8 @@ class Game extends Component {
       game: null,
       board: null,
       isLoading: true,
-      over: false
+      over: false,
+      completedGames: 0
     }
   }
 
@@ -20,15 +21,20 @@ class Game extends Component {
     const { user } = this.props
     const { over } = this.state
     try {
-      // function to iterrate through levels object/arrays and take index, and value inputs, to update game
+      // create newGame, determine level based off number of completed games
       const createdGame = await newGame(user)
-      const game = createdGame.data
-      const level = levels[4]
+      const allGames = await indexGames(user)
+      // set total completed games to number of completed games
+      this.setState({
+        completedGames: allGames.data.filter(e => e.over === true).length
+      })
+      const level = levels[this.state.completedGames + 1]
+      // iterrate through level array and take index, and value inputs, to update game
       let response = null
       for (let i = 0; i < level.length; i++) {
         const index = level[i][0]
         const value = level[i][1]
-        response = await updateGame(user, game, index, value, over)
+        response = await updateGame(user, createdGame.data, index, value, over)
       }
       const finishedLevel = await showGame(user, response.data)
       console.log(finishedLevel.data)
@@ -128,12 +134,14 @@ class Game extends Component {
         </Fragment>
       )
     }
+    const { completedGames } = this.state
+    const level = levels[completedGames + 1]
     return (
       <Fragment>
         <div className="game-container">
           <div className="board">
             {this.state.board.map((value, index) => (
-              <Square key={index} fixedSquare={levels[4][index][1]} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
+              <Square key={index} fixedSquare={level[index][1]} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
             ))}
           </div>
         </div>

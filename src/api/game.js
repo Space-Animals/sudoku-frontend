@@ -41,3 +41,14 @@ export const showGame = (user, game) => {
     }
   })
 }
+
+export const indexGames = (user) => {
+  return axios({
+    url: `${apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${user.token}`
+    }
+  })
+}

@@ -9,9 +9,9 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
-import Square from '../Square/Square'
 import Game from '../Game/Game'
 import Home from '../Home/Home'
+import IndexGames from '../Game/IndexGames'
 
 class App extends Component {
   constructor () {
@@ -58,11 +58,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <Route path='/square' render={() => (
-            <Square/>
-          )}/>
-          <Route path='/games' user={user} render={() => (
+          <AuthenticatedRoute path='/games' user={user} render={() => (
             <Game user={user} />
+          )} />
+          <AuthenticatedRoute path='/game-index' user ={user} render={() => (
+            <IndexGames user={user} />
           )} />
           <Route exact path='/' render={() => (
             <Home user={user} />
