@@ -20,7 +20,6 @@ $red: #f0624f;
   flex-flow: row wrap;
   justify-content: center;
   height: 540px;
-  // margin: 50px;
   width: 540px;
 }
 
@@ -43,12 +42,56 @@ $red: #f0624f;
 
 .controller-container {
   align-items: center;
-  background-color: white;
-  // background-color: $blue;
+  // background-color: white;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   text-align: center;
+}
+
+.controller-content {
+  align-items: center;
+  border: 2px solid $green;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.controller-footer {
+  align-items: center;
+  border: 2px solid $green;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.controller-container {
+  background: transparent;
+}
+.controller-container .modal-content {
+  background: transparent;
+}
+.modal-backdrop.controller-backdrop-container {
+  background: #ffffff;
+}
+.modal-backdrop.controller-backdrop-container.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+
+.show {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.modal {
+  // position: absolute;
+  top: 60%;
+  left: 86%;
+  transform: translate(-50%, -50%);
 }
 
 .controller {
@@ -85,10 +128,6 @@ $red: #f0624f;
   border: 2px solid $red;
 }
 
-.controller-footer {
-  background-color: white;
-}
-
 .eraser {
   background-image: url('images/pencil_eraser.png');
   background-position: center;
@@ -100,7 +139,9 @@ $red: #f0624f;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin: 50px;
+  margin-top: 50px;
+  padding: 0px;
+  width: 100%;
 }
 
 .home-buttons {

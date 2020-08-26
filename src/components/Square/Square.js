@@ -20,7 +20,9 @@ class Square extends Component {
     const { handleSquare, squareID } = this.props
     const { pencilMode } = this.state
     handleSquare(event, squareID, pencilMode)
-    this.setState({ show: false })
+    if (!pencilMode) {
+      this.setState({ show: false })
+    }
   }
 
   handleClear = (event) => {
@@ -253,8 +255,9 @@ class Square extends Component {
           show={show}
           aria-labelledby="contained-modal-sizes-title-sm"
           onHide={this.hideModal}
+          className="controller-container"
         >
-          <Modal.Body className="controller-container">
+          <Modal.Body className="controller-content">
             <Controller handleInput={this.handleInput} handleClear={this.handleClear} handlePencil={this.handlePencil} pencilMode={pencilMode}/>
           </Modal.Body>
           <Modal.Footer className="controller-footer">

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import Row from 'react-bootstrap/Row'
 
 import Square from '../Square/Square'
 import { newGame, updateGame, showGame, indexGames } from '../../api/game'
@@ -138,13 +139,13 @@ class Game extends Component {
     const level = levels[completedGames + 1]
     return (
       <Fragment>
-        <div className="game-container">
+        <Row className="game-container">
           <div className="board">
             {this.state.board.map((value, index) => (
               <Square key={index} fixedSquare={level[index][1]} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
             ))}
           </div>
-        </div>
+        </Row>
       </Fragment>
     )
   }
