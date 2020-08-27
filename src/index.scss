@@ -14,6 +14,14 @@ $blue: #2cdaf5;
 $green: #10c94e;
 $red: #f0624f;
 
+.baby-bowser {
+  background-image: url('images/baby_bowser.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 200px;
+}
+
 .board {
   align-items: center;
   display: flex;
@@ -69,6 +77,9 @@ $red: #f0624f;
 
 .controller-container {
   background: transparent;
+  top: 60%;
+  left: 80%;
+  transform: translate(-50%, -50%);
 }
 .controller-container .modal-content {
   background: transparent;
@@ -87,12 +98,12 @@ $red: #f0624f;
   justify-content: flex-end;
 }
 
-.modal {
-  // position: absolute;
-  top: 60%;
-  left: 86%;
-  transform: translate(-50%, -50%);
-}
+// .modal {
+//   // position: absolute;
+//   top: 60%;
+//   left: 86%;
+//   transform: translate(-50%, -50%);
+// }
 
 .controller {
   align-items: center;
@@ -138,7 +149,7 @@ $red: #f0624f;
   align-items: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 50px;
   padding: 0px;
   width: 100%;
@@ -793,4 +804,12 @@ $red: #f0624f;
 
 .hide-notes {
   display: none;
+}
+
+.yoshi {
+  background-image: url('images/yoshi_and_babyMario.png');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 200px;
 }

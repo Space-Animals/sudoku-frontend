@@ -145,6 +145,10 @@ class Game extends Component {
               <Square key={index} fixedSquare={level[index][1]} handleSquare={this.handleSquare} clearSquare={this.clearSquare} squareID={'square-' + index} index={index} over={this.state.over}/>
             ))}
           </div>
+          <div className="yoshi">
+          </div>
+          <div className="baby-bowser">
+          </div>
         </Row>
       </Fragment>
     )
