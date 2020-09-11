@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Row from 'react-bootstrap/Row'
 import Square from '../Square/Square'
 
-import { showGame, updateGame } from '../../api/game'
+import { indexGames, updateGame } from '../../api/game'
 import { levels } from '../../levels/level.js'
 import { checkForWin } from '../../helpers/helperFunctions'
 
@@ -21,16 +21,28 @@ class ContinueGame extends Component {
 
   async componentDidMount () {
     try {
-      const { user, game } = this.props
-      const currentGame = await showGame(user, game)
+      const { user } = this.props
+      const response = await indexGames(user)
+      const allGames = response.data
+      const currentGame = allGames.filter((e) => e.over === false)[0]
       setTimeout(() => {
         this.setState({
-          game: currentGame.data,
-          board: currentGame.data.cells,
-          over: currentGame.data.over,
+          game: currentGame,
+          board: currentGame.cells,
+          over: currentGame.over,
           isLoading: false
         })
-      })
+
+        this.setState({
+          completedGames: allGames.filter(e => e.over === true).length
+        })
+
+        if (this.state.game) {
+          this.state.board.forEach((v, i) => {
+            document.getElementById(`square-${i}`).innerHTML = v
+          })
+        }
+      }, 1000)
     } catch (error) {
       console.error(error)
     }
@@ -106,7 +118,6 @@ class ContinueGame extends Component {
   }
 
   render () {
-    const level = levels[0]
     if (this.state.isLoading) {
       return (
         <Fragment>
@@ -114,6 +125,9 @@ class ContinueGame extends Component {
         </Fragment>
       )
     }
+
+    const { completedGames } = this.state
+    const level = levels[completedGames + 1]
 
     return (
       <Fragment>

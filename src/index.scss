@@ -98,13 +98,6 @@ $red: #f0624f;
   justify-content: flex-end;
 }
 
-// .modal {
-//   // position: absolute;
-//   top: 60%;
-//   left: 86%;
-//   transform: translate(-50%, -50%);
-// }
-
 .controller {
   align-items: center;
   color: $blue;
@@ -143,6 +136,14 @@ $red: #f0624f;
   background-image: url('images/pencil_eraser.png');
   background-position: center;
   background-size: cover;
+}
+
+.game-completed {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .game-container {

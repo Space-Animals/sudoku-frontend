@@ -12,21 +12,27 @@ class Home extends Component {
 
     this.state = {
       newGame: true,
+      completedGames: null,
       isLoading: true
     }
   }
 
   async componentDidMount () {
-    console.log('Hello!')
     const { user } = this.props
     try {
       if (user) {
         const response = await indexGames(user)
         const allGames = response.data
         let incompletedGames = null
+        let completedGames = null
         if (allGames !== undefined) {
           incompletedGames = allGames.filter(e => e.over === false).length
         }
+
+        if (allGames !== undefined) {
+          completedGames = allGames.filter(e => e.over === true).length
+        }
+
         let isNewGame = null
         if (allGames.length === 0) {
           isNewGame = true
@@ -37,6 +43,7 @@ class Home extends Component {
         }
         this.setState({
           newGame: isNewGame,
+          completedGames: completedGames,
           isLoading: false
         })
       } else {
@@ -70,14 +77,14 @@ class Home extends Component {
         </Row>
       </Fragment>
     )
-    const { newGame } = this.state
+    const { newGame, completedGames } = this.state
     const authorizedHome = () => (
       <Fragment>
         <Row className="home-options-container">
           <Jumbotron className="home-options-screen col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div className="home-options col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              {newGame ? <Button href="#games"className="home-buttons">New Game</Button> : <Button href="#continue-game" className="home-buttons">Continue Game</Button>}
-              <Button href="#game-index" className="home-buttons">Games Completed</Button>
+              {completedGames === 4 ? <h5 className="game-completed">Mission Complete: No more levels!</h5> : newGame ? <Button href="#games"className="home-buttons">New Game</Button> : <Button href="#continue-game" className="home-buttons">Continue Game</Button>}
+              <Button href="#game-index" className="home-buttons">Total Games</Button>
               <Button href="#how-to-play" className="home-buttons">How To Play!</Button>
               <Button href="#change-password"className="home-buttons">Change Password</Button>
               <Button href="#sign-out"className="home-buttons">Sign Out</Button>
