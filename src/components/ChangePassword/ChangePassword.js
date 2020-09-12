@@ -6,6 +6,8 @@ import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Row from 'react-bootstrap/Row'
 
 class ChangePassword extends Component {
   constructor () {
@@ -48,41 +50,43 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Change Password</h3>
-          <Form onSubmit={this.onChangePassword}>
-            <Form.Group controlId="oldPassword">
-              <Form.Label>Old password</Form.Label>
-              <Form.Control
-                required
-                name="oldPassword"
-                value={oldPassword}
-                type="password"
-                placeholder="Old Password"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="newPassword">
-              <Form.Label>New Password</Form.Label>
-              <Form.Control
-                required
-                name="newPassword"
-                value={newPassword}
-                type="password"
-                placeholder="New Password"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Form>
-        </div>
-      </div>
+      <Row className="home-options-container">
+        <Jumbotron className="home-options-screen col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div className="home-options col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <h3>Change Password</h3>
+            <Form onSubmit={this.onChangePassword}>
+              <Form.Group controlId="oldPassword">
+                <Form.Label>Old password</Form.Label>
+                <Form.Control
+                  required
+                  name="oldPassword"
+                  value={oldPassword}
+                  type="password"
+                  placeholder="Old Password"
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="newPassword">
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  required
+                  name="newPassword"
+                  value={newPassword}
+                  type="password"
+                  placeholder="New Password"
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+              <Button
+                variant="primary"
+                type="submit"
+              >
+                Submit
+              </Button>
+            </Form>
+          </div>
+        </Jumbotron>
+      </Row>
     )
   }
 }
