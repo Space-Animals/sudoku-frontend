@@ -600,7 +600,7 @@ $red: #f0624f;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  height: 500px;
+  height: 700px;
   margin: 40px;
   padding: 0px;
   width: 100%
@@ -612,7 +612,14 @@ $red: #f0624f;
   flex-flow: column nowrap;
   justify-content: center;
   margin: 50px;
-  height: 400px;
+  height: 600px;
+}
+
+.how-to-play {
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .jumbotron {

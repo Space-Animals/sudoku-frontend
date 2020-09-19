@@ -13,6 +13,7 @@ import Game from '../Game/Game'
 import ContinueGame from '../Game/ContinueGame'
 import IndexGames from '../Game/IndexGames'
 import Home from '../Home/Home'
+import HowToPlay from '../HowToPlay/HowToPlay'
 
 class App extends Component {
   constructor () {
@@ -59,6 +60,12 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+          <Route exact path='/' render={() => (
+            <Home user={user} />
+          )} />
+          <Route path='/how-to-play' render={() => (
+            <HowToPlay />
+          )} />
           <AuthenticatedRoute path='/games' user={user} render={() => (
             <Game user={user} />
           )} />
@@ -67,9 +74,6 @@ class App extends Component {
           )} />
           <AuthenticatedRoute path='/game-index' user ={user} render={() => (
             <IndexGames user={user} />
-          )} />
-          <Route exact path='/' render={() => (
-            <Home user={user} />
           )} />
         </main>
       </Fragment>
