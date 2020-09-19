@@ -5,11 +5,6 @@ main > .container-fluid {
   width: 100vw;
 }
 
-// .container-fluid {
-//   display: flex;
-//   justify-content: center;
-// }
-
 $blue: #2cdaf5;
 $green: #10c94e;
 $red: #f0624f;
@@ -41,7 +36,6 @@ $red: #f0624f;
 
 .container-fluid {
   align-items: center;
-  // border: 2px solid #1e05ff;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -50,7 +44,6 @@ $red: #f0624f;
 
 .controller-container {
   align-items: center;
-  // background-color: white;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -92,12 +85,6 @@ $red: #f0624f;
   filter: alpha(opacity=90);
 }
 
-.show {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-}
-
 .controller {
   align-items: center;
   color: $blue;
@@ -130,159 +117,6 @@ $red: #f0624f;
 
 .controller-input:hover {
   border: 2px solid $red;
-}
-
-.eraser {
-  background-image: url('images/pencil_eraser.png');
-  background-position: center;
-  background-size: cover;
-}
-
-.game-completed {
-  align-items: center;
-  color: white;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-.game-container {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin-top: 50px;
-  padding: 0px;
-  width: 100%;
-}
-
-.home-buttons {
-  margin: 2px;
-}
-
-.home-options {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-}
-
-.home-options-container {
-  background-image: url('images/yoshi_wallpaper.png');
-  background-size: cover;
-  background-position: top;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  height: 500px;
-  margin: 40px;
-  padding: 0px;
-  width: 100%
-}
-
-.home-options-screen {
-  color: white;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  margin: 50px;
-  height: 400px;
-}
-
-.jumbotron {
-  background-color: rgba(44, 218, 245, 0.5);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: 20;
-  padding: 0px;
-}
-
-.nav {
-  background-color: #41b04c;
-}
-
-.navbar-text {
-  color: white;
-}
-
-.pencil {
-  background-image: url('images/pencil_icon.png');
-  background-position: center;
-  background-size: cover;
-}
-
-.pencil-cells {
-  align-items: center;
-  border-style: hidden;
-  color: $red;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  height: 17px;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-  width: 17px;
-}
-
-.corner-1 {
-  align-items: center;
-  border-top: 4px solid $blue;
-  border-left: 4px solid $blue;
-  border-right: 1px solid $blue;
-  border-bottom: 1px solid $blue;
-  cursor: pointer;
-  display: flex;
-  flex-flow: row wrap;
-  height: 60px;
-  justify-content: center;
-  padding: 0;
-  width: 60px;
-}
-
-.corner-2 {
-  align-items: center;
-  border-top: 4px solid $blue;
-  border-left: 1px solid $blue;
-  border-right: 4px solid $blue;
-  border-bottom: 1px solid $blue;
-  cursor: pointer;
-  display: flex;
-  flex-flow: row wrap;
-  height: 60px;
-  justify-content: center;
-  padding: 0;
-  width: 60px;
-}
-
-.corner-3 {
-  align-items: center;
-  border-top: 1px solid $blue;
-  border-left: 4px solid $blue;
-  border-right: 1px solid $blue;
-  border-bottom: 4px solid $blue;
-  cursor: pointer;
-  display: flex;
-  flex-flow: row wrap;
-  height: 60px;
-  justify-content: center;
-  padding: 0;
-  width: 60px;
-}
-
-.corner-4 {
-  align-items: center;
-  border-top: 1px solid $blue;
-  border-left: 1px solid $blue;
-  border-right: 4px solid $blue;
-  border-bottom: 4px solid $blue;
-  cursor: pointer;
-  display: flex;
-  flex-flow: row wrap;
-  height: 60px;
-  justify-content: center;
-  padding: 0;
-  width: 60px;
 }
 
 .column-1-middle-square {
@@ -660,6 +494,164 @@ $red: #f0624f;
   width: 60px;
 }
 
+.corner-1 {
+  align-items: center;
+  border-top: 4px solid $blue;
+  border-left: 4px solid $blue;
+  border-right: 1px solid $blue;
+  border-bottom: 1px solid $blue;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60px;
+  justify-content: center;
+  padding: 0;
+  width: 60px;
+}
+
+.corner-2 {
+  align-items: center;
+  border-top: 4px solid $blue;
+  border-left: 1px solid $blue;
+  border-right: 4px solid $blue;
+  border-bottom: 1px solid $blue;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60px;
+  justify-content: center;
+  padding: 0;
+  width: 60px;
+}
+
+.corner-3 {
+  align-items: center;
+  border-top: 1px solid $blue;
+  border-left: 4px solid $blue;
+  border-right: 1px solid $blue;
+  border-bottom: 4px solid $blue;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60px;
+  justify-content: center;
+  padding: 0;
+  width: 60px;
+}
+
+.corner-4 {
+  align-items: center;
+  border-top: 1px solid $blue;
+  border-left: 1px solid $blue;
+  border-right: 4px solid $blue;
+  border-bottom: 4px solid $blue;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60px;
+  justify-content: center;
+  padding: 0;
+  width: 60px;
+}
+
+.eraser {
+  background-image: url('images/pencil_eraser.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.fixed-square-input {
+  color: black;
+  font-size: 30px;
+}
+
+.game-completed {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.game-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding: 0px;
+  width: 100%;
+}
+
+.home-buttons {
+  margin: 2px;
+}
+
+.home-options {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.home-options-container {
+  background-image: url('images/yoshi_wallpaper.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: 500px;
+  margin: 40px;
+  padding: 0px;
+  width: 100%
+}
+
+.home-options-screen {
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 50px;
+  height: 400px;
+}
+
+.jumbotron {
+  background-color: rgba(44, 218, 245, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 20;
+  padding: 0px;
+}
+
+.nav {
+  background-color: #41b04c;
+}
+
+.navbar-text {
+  color: white;
+}
+
+.pencil {
+  background-image: url('images/pencil_icon.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.pencil-cells {
+  align-items: center;
+  border-style: hidden;
+  color: $red;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 17px;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 17px;
+}
+
 .row-1-left-square {
   align-items: center;
   border-top: 4px solid $blue;
@@ -778,6 +770,12 @@ $red: #f0624f;
   width: 60px;
 }
 
+.show {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
 .square-container {
   align-items: center;
   border: 1px solid $blue;
@@ -795,17 +793,11 @@ $red: #f0624f;
   font-size: 30px;
 }
 
-.fixed-square-input {
-  color: black;
-  font-size: 30px;
-}
-
-.hide-input {
-  display: none;
-}
-
-.hide-notes {
-  display: none;
+.winner-modal {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .yoshi {
@@ -814,4 +806,20 @@ $red: #f0624f;
   background-position: center;
   height: 200px;
   width: 200px;
+}
+
+.yoshi-groundpound {
+  background-image: url('images/yoshi_victory.gif');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 300px;
+}
+
+.hide-input {
+  display: none;
+}
+
+.hide-notes {
+  display: none;
 }

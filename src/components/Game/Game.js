@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
+import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
+import Modal from 'react-bootstrap/Modal'
 
 import Square from '../Square/Square'
 import { newGame, updateGame, showGame, indexGames } from '../../api/game'
@@ -14,7 +16,8 @@ class Game extends Component {
       board: null,
       isLoading: true,
       over: false,
-      completedGames: 0
+      completedGames: 0,
+      show: false
     }
   }
 
@@ -82,7 +85,6 @@ class Game extends Component {
       const over = checkForWin(updatedBoard)
       updateGame(user, game, index, value, over)
         .then((res) => {
-          console.log(res)
           this.setState({
             game: res.data,
             board: res.data.cells,
@@ -90,6 +92,11 @@ class Game extends Component {
           })
         })
         .catch(error => console.error(error))
+      if (over) {
+        this.setState({
+          show: true
+        })
+      }
     }
   }
 
@@ -135,7 +142,7 @@ class Game extends Component {
         </Fragment>
       )
     }
-    const { completedGames } = this.state
+    const { completedGames, show } = this.state
     const level = levels[completedGames + 1]
     return (
       <Fragment>
@@ -150,6 +157,25 @@ class Game extends Component {
           <div className="baby-bowser">
           </div>
         </Row>
+        <Modal
+          show={show}
+          backdrop="static"
+          className="winner-modal"
+          keyboard={false}
+        >
+          <Modal.Header className="winner-modal" closeButton>
+            <Modal.Title>YOU WIN!!!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="winner-modal">
+            <div className="yoshi-groundpound">
+            </div>
+          </Modal.Body>
+          <Modal.Footer className="winner-modal">
+            <Button href="#/" variant="success">
+              Home
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Fragment>
     )
   }

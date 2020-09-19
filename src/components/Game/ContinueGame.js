@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+
 import Square from '../Square/Square'
 
 import { indexGames, updateGame } from '../../api/game'
@@ -15,7 +18,8 @@ class ContinueGame extends Component {
       board: null,
       over: null,
       completedGames: 0,
-      isLoading: true
+      isLoading: true,
+      show: false
     }
   }
 
@@ -72,7 +76,6 @@ class ContinueGame extends Component {
       const over = checkForWin(updatedBoard)
       updateGame(user, game, index, value, over)
         .then((res) => {
-          console.log(res)
           this.setState({
             game: res.data,
             board: res.data.cells,
@@ -80,6 +83,12 @@ class ContinueGame extends Component {
           })
         })
         .catch(error => console.error(error))
+
+      if (over) {
+        this.setState({
+          show: true
+        })
+      }
     }
   }
 
@@ -126,7 +135,7 @@ class ContinueGame extends Component {
       )
     }
 
-    const { completedGames } = this.state
+    const { completedGames, show } = this.state
     const level = levels[completedGames + 1]
 
     return (
@@ -142,6 +151,25 @@ class ContinueGame extends Component {
           <div className="baby-bowser">
           </div>
         </Row>
+        <Modal
+          show={show}
+          backdrop="static"
+          className="winner-modal"
+          keyboard={false}
+        >
+          <Modal.Header className="winner-modal" closeButton>
+            <Modal.Title>YOU WIN!!!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="winner-modal">
+            <div className="yoshi-groundpound">
+            </div>
+          </Modal.Body>
+          <Modal.Footer className="winner-modal">
+            <Button href="#/" variant="success">
+              Home
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Fragment>
     )
   }
