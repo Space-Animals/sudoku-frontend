@@ -620,8 +620,22 @@ $red: #f0624f;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin: 20;
+  margin: 20px;
   padding: 0px;
+}
+
+.loading-animation {
+  align-content: center;
+  background-image: url('images/yoshis_island.gif');
+  background-position: center;
+  background-size: cover;
+  border: 2px solid $red;
+  display: flex;
+  flex-flow: row wrap;
+  height: 300px;
+  justify-content: center;
+  margin: 30px;
+  width: 300px;
 }
 
 .nav {

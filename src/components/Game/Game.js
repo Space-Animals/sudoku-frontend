@@ -138,7 +138,9 @@ class Game extends Component {
     if (this.state.isLoading) {
       return (
         <Fragment>
-          <h3>... is Loading :)</h3>
+          <h3>..is Loading</h3>
+          <div className="loading-animation">
+          </div>
         </Fragment>
       )
     }

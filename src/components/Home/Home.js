@@ -27,9 +27,6 @@ class Home extends Component {
         let completedGames = null
         if (allGames !== undefined) {
           incompletedGames = allGames.filter(e => e.over === false).length
-        }
-
-        if (allGames !== undefined) {
           completedGames = allGames.filter(e => e.over === true).length
         }
 
@@ -41,15 +38,20 @@ class Home extends Component {
         } else {
           isNewGame = true
         }
-        this.setState({
-          newGame: isNewGame,
-          completedGames: completedGames,
-          isLoading: false
-        })
+
+        setTimeout(() => {
+          this.setState({
+            newGame: isNewGame,
+            completedGames: completedGames,
+            isLoading: false
+          })
+        }, 1000)
       } else {
-        this.setState({
-          isLoading: false
-        })
+        setTimeout(() => {
+          this.setState({
+            isLoading: false
+          })
+        }, 1000)
       }
     } catch (error) {
       console.error(error)
@@ -59,7 +61,9 @@ class Home extends Component {
     if (this.state.isLoading) {
       return (
         <Fragment>
-          <h3>... is Loading :)</h3>
+          <h3>..is Loading</h3>
+          <div className="loading-animation">
+          </div>
         </Fragment>
       )
     }
