@@ -25,7 +25,8 @@ class ChangePassword extends Component {
 
   onChangePassword = event => {
     event.preventDefault()
-
+    console.log(this.state.oldPassword)
+    console.log(this.state.newPassword)
     const { alert, history, user } = this.props
 
     changePassword(this.state, user)

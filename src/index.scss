@@ -554,6 +554,16 @@ $red: #f0624f;
   width: 60px;
 }
 
+.egg-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 300px;
+  justify-content: center;
+  text-align: center;
+  width: 1000px;
+}
+
 .eraser {
   background-image: url('images/pencil_eraser.png');
   background-position: center;
@@ -581,6 +591,13 @@ $red: #f0624f;
   margin-top: 50px;
   padding: 0px;
   width: 100%;
+}
+
+.game-message {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .home-buttons {
@@ -814,6 +831,14 @@ $red: #f0624f;
   font-size: 30px;
 }
 
+.total-games {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  width: 100vw;
+}
+
 .winner-modal {
   align-items: center;
   display: flex;
@@ -825,6 +850,14 @@ $red: #f0624f;
   background-image: url('images/yoshi_and_babyMario.png');
   background-size: cover;
   background-position: center;
+  height: 200px;
+  width: 200px;
+}
+
+.yoshi-egg {
+  background-image: url('images/yoshi_egg.png');
+  background-position: center;
+  background-size: cover;
   height: 200px;
   width: 200px;
 }

@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row'
 import { indexGames } from '../../api/game'
 
 class Home extends Component {
+  _isMounted = false
   constructor () {
     super()
 
@@ -18,9 +19,10 @@ class Home extends Component {
   }
 
   async componentDidMount () {
+    this._isMounted = true
     const { user } = this.props
     try {
-      if (user) {
+      if (user && this._isMounted) {
         const response = await indexGames(user)
         const allGames = response.data
         let incompletedGames = null
@@ -57,6 +59,20 @@ class Home extends Component {
       console.error(error)
     }
   }
+
+  async componentWillUnmount () {
+    this._isMounted = false
+  }
+
+  async componentDidUpdate () {
+    const { user } = this.props
+    setTimeout(() => {
+      if (user === null) {
+        this.setState({ isLoading: false })
+      }
+    }, 1000)
+  }
+
   render () {
     if (this.state.isLoading) {
       return (
@@ -81,6 +97,7 @@ class Home extends Component {
         </Row>
       </Fragment>
     )
+
     const { newGame, completedGames } = this.state
     const authorizedHome = () => (
       <Fragment>
